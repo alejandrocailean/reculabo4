@@ -1,0 +1,20 @@
+<h1 class="text-muted text-center ">{{titulo}} </h1>
+
+<div class="panel-body">  
+  <Table class="table table-striped">
+      <thead>
+        <tr>                 
+          <th>Nombre</th>         
+          <th>Detalles</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listado ; index as i">
+          
+          <td>{{item.name}}</td>  
+          <!-- <td><img src={{item.sprites.front_default}} style="width: 5rem; height: 5rem;"></td>        -->
+          <td><button class="btn btn-info" (click)='detalle(item.name)' >Detalle</button></td>
+         </tr> 
+      </tbody>
+    </Table> 
+</div>
