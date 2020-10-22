@@ -1,0 +1,17 @@
+<p>movimientos works!</p>
+<h1>{{nombrePokemon}}</h1>
+<div class="panel-body">  
+  <table class="table table-striped">
+      <thead>
+        <th>Movimientos</th>
+        <th>Nivel</th>
+        <th>Metodo</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of pokemonMov"> 
+            <td>{{item['move'].name}} </td>
+            <td *ngFor='let det of detaMov'>{{det['move_learn_method']}}</td>
+        </tr> 
+    </tbody>
+  </table>  
+</div>

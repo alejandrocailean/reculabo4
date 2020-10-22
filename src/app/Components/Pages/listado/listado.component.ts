@@ -9,7 +9,11 @@ import { DataService } from 'src/app/Services/DataService/Data.service';
 export class ListadoComponent implements OnInit {
 
   
-pokemones:any;
+  pokemones:any;
+  url:any[]=[];
+  aux:any[]=[];
+  
+
   constructor(private datos:DataService) { }
 
   ngOnInit(): void {
@@ -18,23 +22,26 @@ pokemones:any;
     .subscribe(
       res=>{
         this.pokemones=res["results"];
-        console.log(this.pokemones);
+       // console.log(this.pokemones);
+        for (let index = 0; index < this.pokemones.length; index++) {
+          this.url.push( this.pokemones[index].url);
+          this.datos.getDatos(this.url[index]).subscribe(
+            data=>{
+                //console.log(data['name']);
+                this.aux[index]={
+                  name:data["name"],
+                  peso:data["weight"],
+                  altura:data["height"],
+                  foto:data["sprites"]["front_shiny"]
+                }
+               // console.log(this.aux[index]);
+          });            
+        }
+       
       }
     );
     
-  }
-
-
-  // getpokemones(){
     
-  //   for(let i= 1; i <= 150; i++) {
-
-  //     this.datos.getDatos('https://pokeapi.co/api/v2/pokemon/'+i)
-  //     .subscribe(
-  //       res=>{
-  //         this.pokemones.push(res);
-  //       }
-  //     );
-  //   }
-  // }
+    
+  }  
 }

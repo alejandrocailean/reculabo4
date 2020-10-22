@@ -12,12 +12,12 @@ export class DetalleComponent implements OnInit {
   nombrePokemon;
   pokemonHab;
   pokemonImg:any[]=[];
-  
+  detaHab;
 
   constructor(private route:ActivatedRoute, private datos:DataService) { }
 
   ngOnInit(): void {
-     this.query();
+    this.query();
     this.getPokemon();
   }
 
@@ -27,8 +27,17 @@ export class DetalleComponent implements OnInit {
       console.log(data);
       this.pokemonHab=data["abilities"]; 
       this.pokemonImg.push (data["sprites"]["front_shiny"]);    
-      this.pokemonImg.push (data["sprites"]["back_shiny"]);   
-      console.log(this.pokemonHab[0].ability.url);   
+      this.pokemonImg.push (data["sprites"]["back_shiny"]); 
+      this.pokemonImg.push (data['sprites']['front_default']);
+      this.pokemonImg.push (data['sprites']['front_shiny']);
+      for(let i=0;i<this.pokemonHab.length; i++){ 
+        this.datos.getDatos (this.pokemonHab[i].ability.url)
+        .subscribe(res=>{
+          console.log(res["effect_entries"][i]["effect"]);
+          console.log(Object.keys(res));          
+        });
+      }
+      
     }); 
   }
 

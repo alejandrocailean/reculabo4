@@ -1,0 +1,26 @@
+<div class="form-group" [hidden]='h_menu'>
+    <form >
+        <label class="label" >usuario</label><br>
+        <input type="email" name="usuario" class="form-control" required [(ngModel)]="usuario"><br><br>
+    
+        <label class="label" >contraseña</label><br>
+        <input type="password" name="password" class="form-control" required [(ngModel)]="password"><br><br>
+    
+        <button class="btn btn-info" (click)="loguearte()">Loguearse</button> <br>
+        
+    </form>
+    
+</div>
+<br><br>
+<div [hidden]='!h_menu'>
+    <form>
+        <button class="btn btn-secondary" (click)='verLogueado()'>Ver logueado</button> <br>
+        <button class="btn btn-danger" (click)='desloguearte()'>Salir</button>
+    </form>
+</div>
+
+<br><br>
+<input type="button" class="btn btn-primary" value="Página anterior" onClick="history.go(-1);"> 
+
+
+

@@ -4,17 +4,24 @@
   <Table class="table table-striped">
       <thead>
         <tr>                 
-          <th>Nombre</th>         
+          <th>Nombre</th>
+          <th>Imagen</th>         
+          <th>Peso</th>
+          <th>Altura</th>
           <th>Detalles</th> 
+          <th>Movimientos</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of listado ; index as i">
+         <tr *ngFor="let item of listado ; index as i">
           
-          <td>{{item.name}}</td>  
-          <!-- <td><img src={{item.sprites.front_default}} style="width: 5rem; height: 5rem;"></td>        -->
+           <td>{{item.name}}</td>  
+           <td><img src={{item.foto}} style="width: 5rem; height: 5rem;"></td> 
+           <td>{{item.peso}}</td> 
+           <td>{{item.altura}}</td>           
           <td><button class="btn btn-info" (click)='detalle(item.name)' >Detalle</button></td>
-         </tr> 
+          <td><button class="btn btn-info" (click)='movimiento(item.name)'>Movimientos</button></td>
+         </tr>  
       </tbody>
     </Table> 
 </div>

@@ -8,4 +8,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>    
   </div>
+  <div class="float-right">
+    <button class=" btn-sm btn-primary" routerLink='login' [hidden]='h_btn' >login</button>
+    <button class=" btn-sm btn-danger" routerLink='login' [hidden]='!h_btn' >Salir</button>
+  </div>
 </nav>

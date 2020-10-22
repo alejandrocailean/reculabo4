@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tp-labo4": {
+      "hosting": {
+        "primer-parcial-labo4": [
+          "tp-labo4"
+        ]
+      }
+    }
+  }
+}

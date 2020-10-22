@@ -17,13 +17,23 @@ export class GridComponent implements OnInit {
   constructor(private datos: DataService,private router:Router) { }
 
   ngOnInit(): void {
-    
+    console.log(this.listado);
   }  
 
   detalle(seleccionado:string){
     this.router.navigate(["detalle"],{queryParams:{elegido:seleccionado}})    
     .catch(e=>{
       console.log(e);
+      
+    });
+
+  }
+
+  movimiento(seleccionado:string){
+    this.router.navigate(["moves"],{queryParams:{elegido:seleccionado}})    
+    .catch(e=>{
+      console.log(e);
+      
     });
 
   }
